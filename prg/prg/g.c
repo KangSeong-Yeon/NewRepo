@@ -9,13 +9,26 @@
 #include <stdbool.h>
 #include <conio.h>
 
-// star_x : '별' 배열의 x좌표 위치
-// star_y : '별' 배열의 y좌표 위치
-// player[x][y] : 플레이어 위치
-// player_x : 플레이어 배열의 x좌표 위치
-// player_y : 플레이어 배열의 y좌표 위치
-
 int main(void) {
+	int w, x, y, z;	// 화면 구성 변수
+	int player_x, player_y;	// 플레이어 위치 변수
+	int key;	// 키보드 방향키 입력 변수
+	int star1_x, star1_y, star2_x, star2_y, star3_x, star3_y;	// 별 3개 위치 변수
+	int avoid_star;	// 피한 별 개수 변수
+
+	// 플레이어 초기 위치
+	player_x = 5;
+	player_y = 9;
+
+	// 별 x좌표 초기 위치
+	srand((unsigned)time(NULL));
+	star1_x = rand() % 3;
+	star2_x = rand() % 3 + 3;
+	star3_x = rand() % 3 + 6;
+
+	// 별 y좌표 초기 위치
+
+
 	// 게임 시작
 	printf("===== 별 피하기 게임 (Avoiding the Stars Game) =====\n");
 	printf("\n");
@@ -43,18 +56,10 @@ int main(void) {
 	Sleep(1000);	// 게임판 출력 전까지 잠시 기다리기
 	system("cls");	// 게임판 출력하기 위해 화면 지움
 
-	/*
-	// 별 랜덤 위치 생성
-	char star[50];
-	srand((unsigned)time(NULL));
-	int star_1 = rand() % 50 + 1;
-	int star_2 = rand() % 50 + 1;
-	int star_3 = rand() % 50 + 1;
-	for (int i = 0; i < 3; i++) {
-		star[i]=("★");
-	}
-	printf("%s\n", star);
+	while (1) {
+		// 게임 시작 화면
 
+	/*
 	// 플레이어 이동
 	char player[x][y] = { 0 };
 	char input = getchar();
@@ -65,9 +70,12 @@ int main(void) {
 
 	// 게임 종료
 	// 별이랑 플레이어랑 부딪히면 -> 게임 오버 후 게임 종료 출력
-	//if (star == player) {
-	//	printf("게임 오버! 게임이 종료되었습니다.\n");
-	//}
+		if ((player_x == star1_x && player_y == star1_y) || (player_x == star2_x && player_y == star2_y) || (player_x == star3_x && player_y == star3_y))
+		{
+			printf("게임 오버! 게임이 종료되었습니다.\n");
+			break;
+		}
+	}
 
 	return 0;
 }
