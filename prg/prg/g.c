@@ -107,6 +107,7 @@ int main(void) {
 		if (_kbhit()) {
 			key = _getch();
 
+			// 방향키 입력 받으면 플레이어 위치 이동
 			switch (key) {
 			case 'a' || 'A':
 				player_x--;
