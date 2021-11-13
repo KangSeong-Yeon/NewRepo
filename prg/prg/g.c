@@ -129,11 +129,17 @@ int main(void) {
 					player_x = 0;
 					break;
 				}
+				else {
+					continue;
+				}
 			case 'A':
 				player_x--;
 				if (player_x < 0) {
 					player_x = 0;
 					break;
+				}
+				else {
+					continue;
 				}
 			case 'd':
 				player_x++;
@@ -141,11 +147,17 @@ int main(void) {
 					player_x = 8;
 					break;
 				}
+				else {
+					continue;
+				}
 			case 'D':
 				player_x++;
 				if (player_x > 8) {
 					player_x = 8;
 					break;
+				}
+				else {
+					continue;
 				}
 			}
 		}
