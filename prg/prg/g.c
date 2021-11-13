@@ -43,7 +43,7 @@ int main(void) {
 	// 플레이어 이름 입력
 	char name[50];
 	printf("플레이어 이름을 입력하세요>> ");
-	scanf_s("%s", name, sizeof(name));
+	scanf_s("%s", name, 50);
 
 	// 게임 안내 문구 출력
 	printf("\n%s님! 안녕하세요.\n", name);
@@ -89,7 +89,7 @@ int main(void) {
 
 				// 게임판 공백 출력
 				else {
-					printf(" ");
+					printf("*");
 				}
 			}
 			putchar('\n');
@@ -98,9 +98,23 @@ int main(void) {
 		// 별 떨어짐 출력
 		star1_y++;
 		Sleep(100);
-		if (star1_y > 9) {
+		if (star1_y > 8) {
 			star1_x = rand() % 3;
 			star1_y = (rand() % 3) - 3;
+		}
+
+		star2_y++;
+		Sleep(100);
+		if (star2_y > 8) {
+			star2_x = rand() % 3 + 3;
+			star2_y = (rand() % 3) - 3;
+		}
+
+		star3_y++;
+		Sleep(100);
+		if (star3_y > 8) {
+			star3_x = rand() % 3 + 6;
+			star3_y = (rand() % 3) - 3;
 		}
 
 		// 방향키 입력
@@ -109,17 +123,35 @@ int main(void) {
 
 			// 방향키 입력 받으면 플레이어 위치 이동
 			switch (key) {
-			case 'a' || 'A':
+			case 'a':
 				player_x--;
 				if (player_x < 0) {
 					player_x = 0;
+					break;
+				}
+			case 'A':
+				player_x--;
+				if (player_x < 0) {
+					player_x = 0;
+					break;
+				}
+			case 'd':
+				player_x++;
+				if (player_x > 8) {
+					player_x = 8;
+					break;
+				}
+			case 'D':
+				player_x++;
+				if (player_x > 8) {
+					player_x = 8;
 					break;
 				}
 			}
 		}
 
 		// 피한 별 개수 저장
-		if (star1_y == 9 || star2_y == 9 || star3_y == 9) {
+		if (star1_y == 8 || star2_y == 8 || star3_y == 8) {
 			avoid_star++;
 		}
 
