@@ -10,7 +10,7 @@
 #include <conio.h>
 
 int main(void) {
-	int x, y;	// 화면 구성 변수
+	int width, height;	// 화면 구성 변수
 	int player_x, player_y;	// 플레이어 위치 변수
 	int key;	// 키보드 방향키 입력 변수
 	int star1_x, star1_y, star2_x, star2_y, star3_x, star3_y;	// 별 3개 위치 변수
@@ -48,7 +48,7 @@ int main(void) {
 	// 게임 안내 문구 출력
 	printf("\n%s님! 안녕하세요.\n", name);
 	Sleep(1500);	// 다음 문구 출력까지 잠시 기다리기
-	printf("이 게임은 하늘에서 떨어지는 별들을 최대한 오래, 많이 피하면 되는 게임입니다.\n");
+	printf("이 게임은 하늘에서 떨어지는 별들을 피하면 되는 게임입니다.\n");
 	Sleep(1500);	// 다음 문구 출력까지 잠시 기다리기
 	printf("그럼 게임을 시작합니다.\n");
 	Sleep(1000);	// 다음 문구 출력까지 잠시 기다리기
@@ -69,21 +69,21 @@ int main(void) {
 		system("cls");
 
 		// 게임판 출력
-		for (y = 0; y < 9; y++) {
-			for (x = 0; x < 9; x++) {
+		for (width = 0; width < 9; width++) {
+			for (height = 0; height < 9; height++) {
 				// 별 출력
-				if (x == star1_x && y == star1_y) {
+				if (height == star1_x && width == star1_y) {
 					printf("★");
 				}
-				else if (x == star2_x && y == star2_y) {
+				else if (height == star2_x && width == star2_y) {
 					printf("★");
 				}
-				else if (x == star3_x && y == star3_y) {
+				else if (height == star3_x && width == star3_y) {
 					printf("★");
 				}
 
 				// 플레이어 출력
-				else if (x == player_x && y == player_y) {
+				else if (height == player_x && width == player_y) {
 					printf("@");
 				}
 
