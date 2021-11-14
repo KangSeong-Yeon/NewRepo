@@ -10,7 +10,7 @@
 #include <conio.h>
 
 int main(void) {
-	int width, height;	// 화면 구성 변수
+	int game_x, game_y;	// 화면 구성 변수
 	int player_x, player_y;	// 플레이어 위치 변수
 	int key;	// 키보드 방향키 입력 변수
 	int star1_x, star1_y, star2_x, star2_y, star3_x, star3_y;	// 별 3개 위치 변수
@@ -69,21 +69,21 @@ int main(void) {
 		system("cls");
 
 		// 게임판 출력
-		for (width = 0; width < 9; width++) {
-			for (height = 0; height < 9; height++) {
+		for (game_y = 0; game_y < 9; game_y++) {
+			for (game_x = 0; game_x < 9; game_x++) {
 				// 별 출력
-				if (height == star1_x && width == star1_y) {
+				if (game_x == star1_x && game_y == star1_y) {
 					printf("★");
 				}
-				else if (height == star2_x && width == star2_y) {
+				else if (game_x == star2_x && game_y == star2_y) {
 					printf("★");
 				}
-				else if (height == star3_x && width == star3_y) {
+				else if (game_x == star3_x && game_y == star3_y) {
 					printf("★");
 				}
 
 				// 플레이어 출력
-				else if (height == player_x && width == player_y) {
+				else if (game_x == player_x && game_y == player_y) {
 					printf("@");
 				}
 
