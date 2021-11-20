@@ -8,7 +8,6 @@
 #include <Windows.h>
 #include <stdbool.h>
 #include <conio.h>
-#include <limits.h>
 
 int game_x, game_y;  // 화면 구성 변수
 char name[50];  // 플레이어 이름 변수
@@ -21,7 +20,6 @@ void start();  // 게임 시작 전 문구 출력 함수
 void initialize();  // 변수 초기화 함수
 
 void start() {
-	// 게임 시작
 	printf("===== 별 피하기 게임 (Avoiding the Stars Game) =====\n");
 	printf("\n");
 
@@ -31,11 +29,11 @@ void start() {
 
 	// 게임 안내 문구 출력
 	printf("\n%s님! 안녕하세요.\n", name);
-	Sleep(1500);	// 다음 문구 출력까지 잠시 기다리기
+	Sleep(1500);
 	printf("이 게임은 하늘에서 떨어지는 별들을 피하면 되는 게임입니다.\n");
-	Sleep(1500);	// 다음 문구 출력까지 잠시 기다리기
+	Sleep(1500);
 	printf("그럼 게임을 시작합니다.\n");
-	Sleep(1000);	// 다음 문구 출력까지 잠시 기다리기
+	Sleep(1000);
 	printf("\n");
 
 	// 게임 시작 카운트 다운 표시
@@ -44,9 +42,9 @@ void start() {
 		Sleep(900);
 	}
 
-	printf("\n===== 게임 시작 (Game Start) =====");	// 게임 시작 문구 출력
-	Sleep(1000);	// 게임판 출력 전까지 잠시 기다리기
-	system("cls");	// 게임판 출력하기 위해 화면 지움
+	printf("\n===== 게임 시작 (Game Start) =====");
+	Sleep(1000);
+	system("cls");
 }
 
 void initialize() {
@@ -135,7 +133,6 @@ int main(void) {
 		if (_kbhit()) {
 			key = _getch();
 
-			// 방향키 입력 받으면 플레이어 위치 이동
 			switch (key) {
 			case 'a':
 				player_x--;
@@ -176,8 +173,7 @@ int main(void) {
 			}
 		}
 
-		// 게임 종료
-		// 별이랑 플레이어랑 부딪히면 -> 게임 오버 후 게임 종료 출력
+		// 별이랑 플레이어랑 부딪히면 게임 종료
 		if ((player_x == star1_x && player_y == star1_y) || (player_x == star2_x && player_y == star2_y) || (player_x == star3_x && player_y == star3_y))
 		{
 			printf("게임 오버! 게임이 종료되었습니다.\n");
