@@ -8,40 +8,24 @@
 #include <Windows.h>
 #include <stdbool.h>
 #include <conio.h>
+#include <limits.h>
 
-int main(void) {
-	int game_x, game_y;	// 화면 구성 변수
-	int player_x, player_y;	// 플레이어 위치 변수
-	int key;	// 키보드 방향키 입력 변수
-	int star1_x, star1_y, star2_x, star2_y, star3_x, star3_y;	// 별 3개 위치 변수
-	int avoid_star;	// 피한 별 개수 변수
+int game_x, game_y;  // 화면 구성 변수
+char name[50];  // 플레이어 이름 변수
+int player_x, player_y;  // 플레이어 위치 변수
+int key;  // 키보드 방향키 입력 변수
+int star1_x, star1_y, star2_x, star2_y, star3_x, star3_y;  // 별 3개 위치 변수
+int avoid_star;  // 피한 별 개수 변수
 
-	// 플레이어 초기 위치
-	player_x = 4;
-	player_y = 8;
+void start();  // 게임 시작 전 문구 출력 함수
+void initialize();  // 변수 초기화 함수
 
-	// 별 x좌표 초기 위치
-	// 각각의 별은 3개의 임의의 자리에서 출발함.
-	srand((unsigned)time(NULL));
-	star1_x = rand() % 3;
-	star2_x = rand() % 3 + 3;
-	star3_x = rand() % 3 + 6;
-
-	// 별 y좌표 초기 위치
-	// 별이 항상 다르게 떨어지는 걸 표현하기 위해 별이 떨어지는 위치 : -2~0에서 랜덤으로 시작
-	star1_y = (rand() % 3) - 3;
-	star2_y = (rand() % 3) - 3;
-	star3_y = (rand() % 3) - 3;
-
-	// 피한 별 개수 초기화
-	avoid_star = 0;
-
+void start() {
 	// 게임 시작
 	printf("===== 별 피하기 게임 (Avoiding the Stars Game) =====\n");
 	printf("\n");
 
 	// 플레이어 이름 입력
-	char name[50];
 	printf("플레이어 이름을 입력하세요>> ");
 	scanf_s("%s", name, 50);
 
@@ -63,6 +47,33 @@ int main(void) {
 	printf("\n===== 게임 시작 (Game Start) =====");	// 게임 시작 문구 출력
 	Sleep(1000);	// 게임판 출력 전까지 잠시 기다리기
 	system("cls");	// 게임판 출력하기 위해 화면 지움
+}
+
+void initialize() {
+	// 플레이어 초기 위치
+	player_x = 4;
+	player_y = 8;
+
+	// 별 x좌표 초기 위치
+	// 각각의 별은 3개의 임의의 자리에서 출발함.
+	srand((unsigned)time(NULL));
+	star1_x = rand() % 3;
+	star2_x = rand() % 3 + 3;
+	star3_x = rand() % 3 + 6;
+
+	// 별 y좌표 초기 위치
+	// 별이 항상 다르게 떨어지는 걸 표현하기 위해 별이 떨어지는 위치 : -2~0에서 랜덤으로 시작
+	star1_y = (rand() % 3) - 3;
+	star2_y = (rand() % 3) - 3;
+	star3_y = (rand() % 3) - 3;
+
+	// 피한 별 개수 초기화
+	avoid_star = 0;
+}
+
+int main(void) {
+	initialize();
+	start();
 
 	// 게임 시작 화면
 	while (1) {
@@ -101,6 +112,7 @@ int main(void) {
 		if (star1_y > 8) {
 			star1_x = rand() % 3;
 			star1_y = (rand() % 3) - 3;
+			avoid_star++;
 		}
 
 		star2_y++;
@@ -108,6 +120,7 @@ int main(void) {
 		if (star2_y > 8) {
 			star2_x = rand() % 3 + 3;
 			star2_y = (rand() % 3) - 3;
+			avoid_star++;
 		}
 
 		star3_y++;
@@ -115,6 +128,7 @@ int main(void) {
 		if (star3_y > 8) {
 			star3_x = rand() % 3 + 6;
 			star3_y = (rand() % 3) - 3;
+			avoid_star++;
 		}
 
 		// 방향키 입력
@@ -160,11 +174,6 @@ int main(void) {
 					continue;
 				}
 			}
-		}
-
-		// 피한 별 개수 저장
-		if (star1_y == 8 || star2_y == 8 || star3_y == 8) {
-			avoid_star++;
 		}
 
 		// 게임 종료
