@@ -92,12 +92,12 @@ int main(void) {
 
 				// 플레이어 출력
 				else if (game_x == player_x && game_y == player_y) {
-					printf("@");
+					printf("○");
 				}
 
 				// 게임판 공백 출력
 				else {
-					printf("*");
+					printf("  ");
 				}
 			}
 			putchar('\n');
@@ -105,7 +105,7 @@ int main(void) {
 
 		// 별 떨어짐 출력
 		star1_y++;
-		Sleep(100);
+		Sleep(15);
 		if (star1_y > 8) {
 			star1_x = rand() % 3;
 			star1_y = (rand() % 3) - 3;
@@ -113,7 +113,7 @@ int main(void) {
 		}
 
 		star2_y++;
-		Sleep(100);
+		Sleep(15);
 		if (star2_y > 8) {
 			star2_x = rand() % 3 + 3;
 			star2_y = (rand() % 3) - 3;
@@ -121,7 +121,7 @@ int main(void) {
 		}
 
 		star3_y++;
-		Sleep(100);
+		Sleep(15);
 		if (star3_y > 8) {
 			star3_x = rand() % 3 + 6;
 			star3_y = (rand() % 3) - 3;
