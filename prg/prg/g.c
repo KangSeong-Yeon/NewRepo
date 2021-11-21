@@ -28,7 +28,7 @@ void start() {
 	scanf_s("%s", name, 50);
 
 	// 게임 안내 문구 출력
-	printf("\n%s님! 안녕하세요.\n", name);
+	printf("\n%s 님! 안녕하세요.\n", name);
 	Sleep(1500);
 	printf("이 게임은 하늘에서 떨어지는 별들을 피하면 되는 게임입니다.\n");
 	Sleep(1500);
@@ -105,7 +105,7 @@ int main(void) {
 
 		// 별 떨어짐 출력
 		star1_y++;
-		Sleep(15);
+		Sleep(1);
 		if (star1_y > 8) {
 			star1_x = rand() % 3;
 			star1_y = (rand() % 3) - 3;
@@ -113,7 +113,7 @@ int main(void) {
 		}
 
 		star2_y++;
-		Sleep(15);
+		Sleep(1);
 		if (star2_y > 8) {
 			star2_x = rand() % 3 + 3;
 			star2_y = (rand() % 3) - 3;
@@ -121,7 +121,7 @@ int main(void) {
 		}
 
 		star3_y++;
-		Sleep(15);
+		Sleep(1);
 		if (star3_y > 8) {
 			star3_x = rand() % 3 + 6;
 			star3_y = (rand() % 3) - 3;
@@ -175,12 +175,12 @@ int main(void) {
 		// 별이랑 플레이어랑 부딪히면 게임 종료
 		if ((player_x == star1_x && player_y == star1_y) || (player_x == star2_x && player_y == star2_y) || (player_x == star3_x && player_y == star3_y))
 		{
-			printf("게임 오버! 게임이 종료되었습니다.\n");
+			printf("===== 게임 오버! 게임이 종료되었습니다. =====\n");
 			break;
 		}
 	}
 
-	printf("\n%s님의 점수는 %d점 입니다.\n", name, avoid_star);
+	printf("\n===== %s 님께서 획득하신 점수는 %d점 입니다. =====\n", name, avoid_star);
 
 	return 0;
 }
