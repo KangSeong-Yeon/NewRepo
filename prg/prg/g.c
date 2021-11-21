@@ -53,14 +53,11 @@ void initialize() {
 	player_y = 8;
 
 	// 별 x좌표 초기 위치
-	// 각각의 별은 3개의 임의의 자리에서 출발함.
-	srand((unsigned)time(NULL));
 	star1_x = rand() % 3;
 	star2_x = rand() % 3 + 3;
 	star3_x = rand() % 3 + 6;
 
 	// 별 y좌표 초기 위치
-	// 별이 항상 다르게 떨어지는 걸 표현하기 위해 별이 떨어지는 위치 : -2~0에서 랜덤으로 시작
 	star1_y = (rand() % 3) - 3;
 	star2_y = (rand() % 3) - 3;
 	star3_y = (rand() % 3) - 3;
@@ -70,6 +67,8 @@ void initialize() {
 }
 
 int main(void) {
+	srand((unsigned)time(NULL));
+
 	initialize();
 	start();
 
