@@ -37,13 +37,13 @@ void start() {
 	printf("\n");
 
 	// 플레이어 이름 입력
-	printf("플레이어 이름을 입력하세요. >> ");
+	printf("플레이어의 이름을 입력해주세요. >> ");
 	scanf_s("%s", name, 50);
 
 	// 게임 안내 문구 출력
 	printf("\n%s 님! 안녕하세요.\n", name);
 	Sleep(1500);
-	printf("이 게임은 하늘에서 떨어지는 별들을 피하면 되는 게임입니다.\n");
+	printf("이 게임은 하늘에서 떨어지는 별들을 부딪히지 않고 피하면 되는 게임입니다.\n");
 	Sleep(1500);
 	printf("일정 점수에 도달하게 되면 난이도가 상승하여 별의 개수가 늘어나고 떨어지는 속도가 빨라집니다.\n");
 	Sleep(1500);
@@ -51,7 +51,7 @@ void start() {
 	Sleep(1500);
 	printf("단, 한/영 입력키가 한글로 설정되어있을 시 게임 작동이 원활하게 진행되지 않을 수 있습니다.\n");
 	Sleep(1500);
-	printf("게임 시작 전 테스트를 통해 한글 입력 상태라면 한/영 입력키를 영어로 설정하여 주십시오.\n>> ");
+	printf("게임 시작 전 테스트를 통해 한글 입력 상태라면 한/영 입력키를 영어 입력 상태로 설정하여 주십시오.\n>> ");
 	scanf_s("%s", test, 100);
 	printf("\n좋습니다!\n");
 	Sleep(1500);
@@ -189,7 +189,7 @@ void easy_falling_star() {
 
 void normal_falling_star() {
 	star1_y++;
-	Sleep(8);
+	Sleep(13);
 	if (star1_y > 8) {
 		star1_x = rand() % 3 + 1;
 		star1_y = (rand() % 3) - 4;
@@ -197,7 +197,7 @@ void normal_falling_star() {
 	}
 
 	star2_y++;
-	Sleep(8);
+	Sleep(13);
 	if (star2_y > 8) {
 		star2_x = rand() % 3 + 4;
 		star2_y = (rand() % 3) - 4;
@@ -205,7 +205,7 @@ void normal_falling_star() {
 	}
 
 	star3_y++;
-	Sleep(8);
+	Sleep(13);
 	if (star3_y > 8) {
 		star3_x = rand() % 3 + 7;
 		star3_y = (rand() % 3) - 4;
@@ -213,7 +213,7 @@ void normal_falling_star() {
 	}
 
 	star4_y++;
-	Sleep(8);
+	Sleep(13);
 	if (star4_y > 8) {
 		star4_x = rand() % 5 + 1;
 		star4_y = (rand() % 3) - 4;
@@ -221,7 +221,7 @@ void normal_falling_star() {
 	}
 
 	star5_y++;
-	Sleep(8);
+	Sleep(13);
 	if (star5_y > 8) {
 		star5_x = rand() % 5 + 5;
 		star5_y = (rand() % 3) - 4;
@@ -231,7 +231,7 @@ void normal_falling_star() {
 
 void hard_falling_star() {
 	star1_y++;
-	Sleep(1);
+	Sleep(3);
 	if (star1_y > 8) {
 		star1_x = rand() % 3 + 1;
 		star1_y = (rand() % 3) - 4;
@@ -239,7 +239,7 @@ void hard_falling_star() {
 	}
 
 	star2_y++;
-	Sleep(1);
+	Sleep(3);
 	if (star2_y > 8) {
 		star2_x = rand() % 3 + 4;
 		star2_y = (rand() % 3) - 4;
@@ -247,7 +247,7 @@ void hard_falling_star() {
 	}
 
 	star3_y++;
-	Sleep(1);
+	Sleep(3);
 	if (star3_y > 8) {
 		star3_x = rand() % 3 + 7;
 		star3_y = (rand() % 3) - 4;
@@ -255,7 +255,7 @@ void hard_falling_star() {
 	}
 
 	star4_y++;
-	Sleep(1);
+	Sleep(3);
 	if (star4_y > 8) {
 		star4_x = rand() % 5 + 1;
 		star4_y = (rand() % 3) - 4;
@@ -263,7 +263,7 @@ void hard_falling_star() {
 	}
 
 	star5_y++;
-	Sleep(1);
+	Sleep(3);
 	if (star5_y > 8) {
 		star5_x = rand() % 5 + 5;
 		star5_y = (rand() % 3) - 4;
@@ -271,7 +271,7 @@ void hard_falling_star() {
 	}
 
 	star6_y++;
-	Sleep(1);
+	Sleep(3);
 	if (star6_y > 8) {
 		star6_x = rand() % 4 + 1;
 		star6_y = (rand() % 3) - 4;
@@ -279,7 +279,7 @@ void hard_falling_star() {
 	}
 
 	star7_y++;
-	Sleep(1);
+	Sleep(3);
 	if (star7_y > 8) {
 		star7_x = rand() % 4 + 6;
 		star7_y = (rand() % 3) - 4;
@@ -287,21 +287,21 @@ void hard_falling_star() {
 	}
 
 	star8_y++;
-	Sleep(1);
+	Sleep(3);
 	if (star8_y > 8) {
 		star8_x = rand() % 5 + 3;
 		star8_y = (rand() % 3) - 4;
 	}
 
 	star9_y++;
-	Sleep(1);
+	Sleep(3);
 	if (star8_y > 8) {
 		star8_x = rand() % 2 + 1;
 		star8_y = (rand() % 3) - 4;
 	}
 
 	star10_y++;
-	Sleep(1);
+	Sleep(3);
 	if (star8_y > 8) {
 		star8_x = rand() % 2 + 8;
 		star8_y = (rand() % 3) - 4;
@@ -330,14 +330,17 @@ int main(void) {
 		system("cls");
 		display();
 
-		if (avoid_star < 50) {
+		if (avoid_star < 33) {
 			level_easy();
+			printf("= 현재 난이도 : EASY =\n");
 		}
-		else if (avoid_star < 150) {
+		else if (avoid_star < 100) {
 			level_normal();
+			printf("= 현재 난이도 : NORMAL =\n");
 		}
 		else {
 			level_hard();
+			printf("= 현재 난이도 : HARD =\n");
 		}
 
 		// 현재 점수 출력
