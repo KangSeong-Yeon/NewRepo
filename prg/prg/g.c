@@ -23,7 +23,6 @@ typedef struct {
     int y;
 } PLAYER;
 
-int game_x, game_y;  // 화면 구성 변수
 char name[50];  // 플레이어 이름 변수
 char test[100];  // 한/영키 테스트 변수
 int score = 0;  // 점수 변수
@@ -82,7 +81,7 @@ int game(int level)
     int count = level * LEVEL_COUNT;  // 별 출력 개수 변수
 
     // 난이도 상승에 필요한 별의 개수
-    int levelup = 20 + level * 20;
+    int levelup = 20 + level * 20;  // 난이도 상승 변수
 
     // 별의 출력 개수가 최댓값을 넘지 않도록 조정
     if (count >= MAX_STAR) {
@@ -109,10 +108,9 @@ int game(int level)
     // 게임 루프
     while (check)
     {
-        // 스피드에 따른 시연 지연.
+        // 별이 떨어지는 속도에 따른 지연
         Sleep(speed);
 
-        // 화면 지우기
         system("cls");
 
         // 게임 환경 출력
